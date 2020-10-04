@@ -1,0 +1,12 @@
+[Unit]
+Description=Run cover.service every 60 minutes
+Requires=cover.service
+
+[Timer]
+Unit=cover.service
+OnUnitInactiveSec=60m
+RandomizedDelaySec=1m
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

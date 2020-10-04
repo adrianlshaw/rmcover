@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"image/color"
 	"net/http"
-	"time"
 
 	"github.com/antchfx/htmlquery"
 	"github.com/disintegration/imaging"
@@ -78,16 +77,9 @@ func main() {
 
 	url := "https://c.xkcd.com/random/comic/"
 
-	for {
+	img := scrape(url)
 
-		img := scrape(url)
-
-		if img != "" {
-			getImage(img)
-		}
-
-		fmt.Println("Sleeping")
-
-		time.Sleep(60 * time.Minute)
+	if img != "" {
+		getImage(img)
 	}
 }
